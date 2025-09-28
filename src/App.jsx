@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const App = () => {
+  const [loaded, setLoaded] = useState(false);
+
   const balloonVariants = {
     float: {
       y: [0, -20, 0],
@@ -189,6 +191,7 @@ const App = () => {
       <motion.img
         src="/roblox1.png" // 👉 Add another character if you want
         alt="Roblox Character"
+        onLoad={() => setLoaded(true)} // 👈 only animate after image loads
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.8 }}

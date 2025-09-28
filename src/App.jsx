@@ -36,7 +36,7 @@ const App = () => {
         {/* Left side: photo of birthday boy */}
         <section className="relative p-2 md:p-4 flex flex-col items-center justify-center">
           <motion.img
-            src="src/assets/John.jpg" // 👉 Replace with your own image in public folder
+            src="/John.jpg" // 👉 Replace with your own image in public folder
             alt="Birthday boy"
             className="rounded-xl shadow-lg mb-4 w-full h-110 object-cover"
             initial={{ scale: 0.96 }}
@@ -127,7 +127,7 @@ const App = () => {
             >
               {c.isIcon ? (
                 <img
-                  src="src/assets/roblox-logo.png" // 👉 your Roblox logo path
+                  src="/roblox-logo.png"
                   alt="Roblox"
                   style={{ width: c.size + 8, height: c.size + 8 }}
                   className="opacity-90"
@@ -187,7 +187,7 @@ const App = () => {
         </section>
       </div>
       <motion.img
-        src="src/assets/roblox1.png" // 👉 Add another character if you want
+        src="/roblox1.png" // 👉 Add another character if you want
         alt="Roblox Character"
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

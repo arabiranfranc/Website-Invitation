@@ -20,7 +20,7 @@ const App = () => {
     color: ["#F59E0B", "#EF4444", "#10B981", "#3B82F6", "#A78BFA"][
       Math.floor(Math.random() * 5)
     ],
-    isIcon: Math.random() < 0.25,
+    isIcon: Math.random() < 0.25, // 25% chance it's a Roblox logo
   }));
 
   const event = {
@@ -29,30 +29,29 @@ const App = () => {
     date: "Wednesday, October 1, 2025",
     time: "4:30 PM - 7:00 PM",
     venue: "Jollibee Plaza Leon, Tondo, Manila",
-    notes: "Games, Cake, and a small surprise!",
+    notes: "Games, Cake, and a small surprise!.",
   };
 
   return (
-    <main className="h-screen w-screen bg-gradient-to-br from-green-400 via-indigo-200 to-blue-600 flex items-center justify-center overflow-hidden relative">
-      {/* Card */}
-      <div className="h-[90%] w-[90%] bg-white/90 backdrop-blur rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 relative">
+    <main className="min-h-screen bg-gradient-to-br from-green-400 via-indigo-200 to-blue-600 flex items-center justify-center p-6">
+      <div className="max-w-4xl w-full bg-white/90 backdrop-blur rounded-2xl shadow-2xl overflow-hidden grid md:grid-cols-2 relative">
         {/* Left side: photo of birthday boy */}
-        <section className="relative flex flex-col items-center justify-center p-2 md:p-4">
+        <section className="relative p-2 md:p-4 flex flex-col items-center justify-center">
           <motion.img
-            src="/John.jpg"
+            src="/John.jpg" // 👉 Replace with your own image in public folder
             alt="Birthday boy"
-            className="rounded-xl shadow-lg mb-2 w-full h-[50%] md:h-[70%] object-cover"
+            className="rounded-xl shadow-lg mb-4 w-full h-110 object-cover"
             initial={{ scale: 0.96 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1 }}
           />
 
           {/* Balloons floating */}
-          <div className="absolute -top-4 right-4 flex gap-2">
+          <div className="absolute -top-6 right-6 md:right-8 flex gap-2">
             <motion.div
               variants={balloonVariants}
               animate="float"
-              className="w-8 h-16 md:w-10 md:h-20"
+              className="w-12 h-24 md:w-14 md:h-20"
             >
               <svg
                 viewBox="0 0 64 96"
@@ -72,7 +71,7 @@ const App = () => {
             <motion.div
               animate={{ y: [0, -18, 0] }}
               transition={{ repeat: Infinity, duration: 3 }}
-              className="w-8 h-16 md:w-10 md:h-18"
+              className="w-10 h-24 md:w-12 md:h-18"
             >
               <svg
                 viewBox="0 0 64 96"
@@ -92,7 +91,7 @@ const App = () => {
             <motion.div
               animate={{ y: [0, -16, 0] }}
               transition={{ repeat: Infinity, duration: 3.5 }}
-              className="w-8 h-16 md:w-10 md:h-18"
+              className="w-10 h-24 md:w-12 md:h-18"
             >
               <svg
                 viewBox="0 0 64 96"
@@ -145,10 +144,10 @@ const App = () => {
           ))}
 
           <div className="mt-2 text-center">
-            <h1 className="text-xl md:text-3xl font-extrabold tracking-tight text-blue-600">
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-600">
               You're Invited!
             </h1>
-            <p className="mt-1 text-xs md:text-base text-gray-600">
+            <p className="mt-2 text-sm md:text-base text-gray-600">
               Join us to celebrate{" "}
               <span className="font-semibold text-indigo-700">
                 {event.childName}
@@ -161,48 +160,44 @@ const App = () => {
         </section>
 
         {/* Right side details */}
-        <section className="p-3 md:p-6 flex flex-col justify-center text-xs md:text-base">
-          <h2 className="text-lg md:text-2xl font-bold text-gray-800 mb-2 md:mb-4">
+        <section className="p-6 md:p-8 flex flex-col justify-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
             Party Details
           </h2>
 
-          <ul className="space-y-2 md:space-y-4 text-gray-700">
+          <ul className="space-y-4 text-gray-700">
             <li className="flex items-start gap-1">
-              <strong className="w-16 md:w-24 text-gray-900">When</strong>
+              <strong className="w-24 text-sm text-gray-900">When</strong>
               <div>
                 <div className="font-medium">{event.date}</div>
-                <div className="text-gray-500">{event.time}</div>
+                <div className="text-sm text-gray-500">{event.time}</div>
               </div>
             </li>
 
             <li className="flex items-start gap-1">
-              <strong className="w-16 md:w-24 text-gray-900">Where</strong>
+              <strong className="w-24 text-sm text-gray-900">Where</strong>
               <div>
                 <div className="font-medium">{event.venue}</div>
               </div>
             </li>
 
             <li className="flex items-start gap-1">
-              <strong className="w-16 md:w-24 text-gray-900">Notes</strong>
-              <div className="text-gray-700">{event.notes}</div>
+              <strong className="w-24 text-sm text-gray-900">Notes</strong>
+              <div className="text-sm text-gray-700">{event.notes}</div>
             </li>
           </ul>
         </section>
       </div>
-
-      {/* Roblox Character */}
       <motion.img
-        src="/roblox1.png"
+        src="/roblox1.png" // 👉 Add another character if you want
         alt="Roblox Character"
-        onLoad={() => setLoaded(true)}
+        onLoad={() => setLoaded(true)} // 👈 only animate after image loads
         initial={{ y: 50, opacity: 0 }}
-        animate={loaded ? { y: 0, opacity: 1 } : {}}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.8 }}
-        className="absolute bottom-0 right-0 w-20 md:w-28"
+        className="absolute bottom-0 right-0 w-28 md:w-36"
       />
-
-      {/* Footer */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-[10px] md:text-xs text-black">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-black-400">
         Made with ❤️ — Kuya
       </div>
     </main>

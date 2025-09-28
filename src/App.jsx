@@ -143,6 +143,16 @@ const App = () => {
             </motion.div>
           ))}
 
+          <motion.img
+            src="/roblox1.png" // 👉 Add another character if you want
+            alt="Roblox Character"
+            onLoad={() => setLoaded(true)} // 👈 only animate after image loads
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="absolute bottom-0 right-0 w-28 md:w-36"
+          />
+
           <div className="mt-2 text-center">
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-600">
               You're Invited!
@@ -188,16 +198,8 @@ const App = () => {
           </ul>
         </section>
       </div>
-      <motion.img
-        src="/roblox1.png" // 👉 Add another character if you want
-        alt="Roblox Character"
-        onLoad={() => setLoaded(true)} // 👈 only animate after image loads
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.8 }}
-        className="absolute bottom-0 right-0 w-28 md:w-36"
-      />
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-black-400">
+
+      <div className="left-1/2 transform -translate-x-1/2 text-xs text-black-400">
         Made with ❤️ — Kuya
       </div>
     </main>

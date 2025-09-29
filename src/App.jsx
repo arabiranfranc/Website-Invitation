@@ -53,7 +53,7 @@ const App = () => {
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
-              className="absolute bottom-20 left-10 w-28 md:w-36"
+              className="absolute bottom-20 right-10 w-28 md:w-36"
             />
             {/* Balloons floating */}
             <div className="absolute -top-6 right-6 md:right-8 flex gap-2">
